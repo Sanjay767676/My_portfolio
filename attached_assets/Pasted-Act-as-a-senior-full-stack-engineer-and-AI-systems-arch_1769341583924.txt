@@ -1,0 +1,182 @@
+Act as a senior full-stack engineer and AI systems architect.
+
+Build a COMPLETE personal portfolio system with:
+- Animated frontend
+- Backend API
+- AI-ready resume analysis pipeline
+- Automatic resume updates from cloud storage
+
+Use professional, scalable architecture.
+
+====================================================
+TECH STACK
+====================================================
+
+FRONTEND:
+- HTML5 (semantic)
+- CSS3 (dark theme, glassmorphism)
+- Vanilla JavaScript
+- GSAP + ScrollTrigger (animations)
+- Three.js (3D background visuals)
+
+BACKEND:
+- Node.js + Express (preferred)
+- OR Python (FastAPI) if easier
+- REST APIs
+- File system + cloud integration
+
+AI (FOR NOW):
+- Resume parsing & analysis placeholders
+- NLP hooks (skills extraction, summary)
+- Clearly commented AI logic sections
+
+====================================================
+PROJECT STRUCTURE
+====================================================
+
+/frontend
+  ├── index.html
+  ├── style.css
+  ├── script.js
+  ├── threeScene.js
+  └── assets/
+
+/backend
+  ├── server.js (or main.py)
+  ├── routes/
+  ├── controllers/
+  ├── resumeWatcher.js
+  ├── aiAnalyzer.js
+  ├── resumeData.json
+  └── .env
+
+====================================================
+FRONTEND SECTIONS (MANDATORY)
+====================================================
+
+1. HERO
+- Fullscreen section
+- Three.js animated background
+- GSAP text reveal animation
+- CTA buttons with hover animation
+
+2. NAVBAR
+- Fixed glassmorphism navbar
+- Smooth scroll
+- Active link animation
+
+3. ABOUT
+- Scroll-triggered GSAP animations
+- Professional description layout
+
+4. SKILLS (ANIMATED)
+- Infinite horizontal scrolling skills section
+- Each skill has:
+  - Logo/icon
+  - Name
+- GSAP loop animation
+- Hover glow / scale effects
+- Skills loaded dynamically from backend API
+
+5. PROJECTS
+- Project cards with animation
+- Placeholder GitHub buttons (links added later)
+- Data loaded from backend
+
+6. RESUME (SMART & DYNAMIC)
+- Resume preview section
+- Resume summary auto-generated from backend
+- If resume exists → display analysis
+- If resume is updated → auto-refresh content
+- Download resume button
+
+7. CONTACT
+- Animated contact form
+- Frontend validation
+- Backend API endpoint for submission
+
+====================================================
+BACKEND FUNCTIONALITY (CRITICAL)
+====================================================
+
+1. RESUME STORAGE & WATCHER
+- Resume stored in:
+  /backend/resumes/
+- Backend continuously watches resume folder
+- Detect:
+  - New resume upload
+  - Resume replacement
+  - Timestamp of upload
+
+2. GOOGLE DRIVE INTEGRATION
+- Connect backend to Google Drive API
+- Monitor a specific Drive folder
+- If a new resume file is uploaded:
+  - Automatically download it
+  - Replace old resume
+  - Trigger analysis
+- Clearly comment setup steps
+
+3. RESUME ANALYSIS PIPELINE
+When resume is uploaded or updated:
+- Parse PDF/DOCX
+- Extract:
+  - Name
+  - Skills
+  - Education
+  - Projects
+  - Experience
+- Store extracted data in resumeData.json
+
+4. AI ANALYSIS (PLACEHOLDER BUT READY)
+- aiAnalyzer.js should include:
+  - Resume summarization function
+  - Skill categorization function
+  - Career domain inference (ML / Web / Data etc.)
+- Use placeholder logic or simple NLP
+- Comment:
+  // Replace this with OpenAI / local LLM later
+
+5. API ENDPOINTS
+Expose APIs like:
+- GET /api/resume
+- GET /api/skills
+- GET /api/projects
+- POST /api/contact
+
+Frontend must fetch data dynamically.
+
+====================================================
+AUTO-UPDATE BEHAVIOR
+====================================================
+
+- If resume already exists:
+  → Display analyzed content
+- If a new resume is uploaded to Drive:
+  → Detect change
+  → Analyze resume
+  → Update backend data
+  → Frontend reflects changes automatically (no refresh required)
+
+====================================================
+QUALITY & DOCUMENTATION
+====================================================
+
+- Comment every important logic block
+- Explain:
+  - GSAP animations
+  - Three.js setup
+  - Resume watcher logic
+  - Google Drive sync
+  - AI integration points
+- Code must be beginner-friendly but production-style
+
+====================================================
+DELIVERABLE
+====================================================
+
+- Fully working frontend + backend
+- Runs in Replit
+- Resume auto-analysis ready
+- AI-ready architecture
+- Easy to extend with real AI later
