@@ -106,7 +106,7 @@ export default function SkillsSection() {
       <div className="max-w-6xl mx-auto px-6">
         <div ref={headingRef} className="text-center mb-16">
           <span className="text-primary font-medium mb-4 block">My Skills</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
             Technologies I <span className="gradient-text">Work With</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">

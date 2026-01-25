@@ -67,7 +67,7 @@ export default function ResumeSection() {
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="text-center mb-16">
           <span className="text-primary font-medium mb-4 block">Resume</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
             My <span className="gradient-text">Background</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">

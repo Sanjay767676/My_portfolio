@@ -45,7 +45,8 @@
   --chart-5: 320 70% 55%;
 
   --font-sans: 'Inter', sans-serif;
-  --font-serif: Georgia, serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
   --radius: .5rem;
   --shadow-2xs: 0px 2px 4px 0px hsl(260 50% 20% / 0.05);

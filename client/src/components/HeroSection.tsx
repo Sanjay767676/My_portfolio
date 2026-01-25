@@ -59,7 +59,7 @@ export default function HeroSection() {
       <div className="text-center max-w-4xl mx-auto">
         <h1
           ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight font-display tracking-tight"
           data-testid="hero-title"
         >
           <span className="gradient-text">Sanjay K</span>

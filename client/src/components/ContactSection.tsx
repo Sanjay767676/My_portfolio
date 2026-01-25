@@ -24,9 +24,9 @@ import { Send, Mail, MapPin, Phone, CheckCircle2, Loader2 } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@portfolio.dev" },
-  { icon: MapPin, label: "Location", value: "San Francisco, CA" },
-  { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
+  { icon: Mail, label: "Email", value: "ksanjuma1234@gmail.com" },
+  { icon: MapPin, label: "Location", value: "Coimbatore, Tamil Nadu" },
+  { icon: Phone, label: "Phone", value: "+91 7358981203" },
 ];
 
 export default function ContactSection() {
@@ -130,7 +130,7 @@ export default function ContactSection() {
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="text-center mb-16">
           <span className="text-primary font-medium mb-4 block">Contact</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
             Let's <span className="gradient-text">Connect</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">

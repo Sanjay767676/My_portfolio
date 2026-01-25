@@ -123,7 +123,7 @@ export default function ProjectsSection() {
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="text-center mb-16">
           <span className="text-primary font-medium mb-4 block">My Work</span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
