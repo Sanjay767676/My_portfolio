@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -61,10 +62,11 @@ export default function Navbar() {
             e.preventDefault();
             scrollToSection("#home");
           }}
-          className="text-2xl font-bold gradient-text"
+          className="flex items-center gap-2"
           data-testid="nav-logo"
         >
-          Sanjay K
+          <img src={logo} alt="Logo" className="w-10 h-10 rounded-md" />
+          <span className="text-xl font-bold gradient-text font-display">Sanjay K</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1">

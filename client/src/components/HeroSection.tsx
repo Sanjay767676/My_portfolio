@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -57,6 +58,17 @@ export default function HeroSection() {
       data-testid="hero-section"
     >
       <div className="text-center max-w-4xl mx-auto">
+        <div className="mb-8 flex justify-center">
+          <div className="relative">
+            <img
+              src={profilePhoto}
+              alt="Sanjay K"
+              className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-primary/30 shadow-xl"
+              data-testid="hero-photo"
+            />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 pointer-events-none" />
+          </div>
+        </div>
         <h1
           ref={titleRef}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight font-display tracking-tight"
