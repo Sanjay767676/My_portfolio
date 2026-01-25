@@ -1,10 +1,9 @@
-import { Github, Linkedin, Twitter, Heart } from "lucide-react";
+import { Github, Linkedin, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Github, href: "https://github.com/Sanjay767676", label: "GitHub" },
+  { icon: Linkedin, href: "https://linkedin.com/in/sanjay-k-sana", label: "LinkedIn" },
 ];
 
 export default function Footer() {
@@ -13,9 +12,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
-            <p className="text-2xl font-bold gradient-text mb-2">Portfolio</p>
+            <p className="text-2xl font-bold gradient-text mb-2">Sanjay K</p>
             <p className="text-sm text-muted-foreground">
-              Building exceptional digital experiences
+              Build. Innovate. Secure.
             </p>
           </div>
 

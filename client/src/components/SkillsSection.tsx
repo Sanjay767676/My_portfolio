@@ -5,35 +5,31 @@ import { useQuery } from "@tanstack/react-query";
 import type { Skill } from "@shared/schema";
 import { Skeleton } from "@/components/ui/skeleton";
 import { 
-  SiReact, SiTypescript, SiNodedotjs, SiPython, SiPostgresql,
-  SiMongodb, SiDocker, SiAmazonwebservices, SiGit, SiFigma,
-  SiTailwindcss, SiNextdotjs, SiGraphql, SiRedis, SiLinux,
-  SiJavascript, SiVuedotjs, SiAngular, SiKubernetes, SiTensorflow
+  SiReact, SiPython, SiDocker, SiAmazonwebservices, SiGit, SiFigma,
+  SiLinux, SiKubernetes, SiTensorflow, SiFlutter, SiDjango, SiFlask,
+  SiFirebase, SiStreamlit
 } from "react-icons/si";
+import { FaJava, FaChartBar } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   react: SiReact,
-  typescript: SiTypescript,
-  nodejs: SiNodedotjs,
   python: SiPython,
-  postgresql: SiPostgresql,
-  mongodb: SiMongodb,
+  java: FaJava,
+  flutter: SiFlutter,
+  django: SiDjango,
+  flask: SiFlask,
   docker: SiDocker,
   aws: SiAmazonwebservices,
   git: SiGit,
   figma: SiFigma,
-  tailwindcss: SiTailwindcss,
-  nextjs: SiNextdotjs,
-  graphql: SiGraphql,
-  redis: SiRedis,
   linux: SiLinux,
-  javascript: SiJavascript,
-  vuejs: SiVuedotjs,
-  angular: SiAngular,
   kubernetes: SiKubernetes,
   tensorflow: SiTensorflow,
+  firebase: SiFirebase,
+  streamlit: SiStreamlit,
+  powerbi: FaChartBar,
 };
 
 function SkillCard({ skill }: { skill: Skill }) {

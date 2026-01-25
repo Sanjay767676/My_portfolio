@@ -62,9 +62,9 @@ export default function HeroSection() {
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
           data-testid="hero-title"
         >
-          <span className="gradient-text">Creative</span>
+          <span className="gradient-text">Sanjay K</span>
           <br />
-          <span className="text-foreground">Developer</span>
+          <span className="text-foreground">Build. Innovate. Secure.</span>
         </h1>
 
         <p
@@ -72,8 +72,8 @@ export default function HeroSection() {
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           data-testid="hero-subtitle"
         >
-          Building exceptional digital experiences with modern technologies.
-          Passionate about clean code, beautiful design, and innovative solutions.
+          Software Developer & Cloud Engineer passionate about AI/ML, cloud technologies, 
+          and building innovative solutions. Currently pursuing Computer Science at SNS College of Technology.
         </p>
 
         <div
@@ -110,30 +110,36 @@ export default function HeroSection() {
         </div>
 
         <div ref={socialRef} className="flex justify-center gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="glass rounded-full glow-hover"
-            data-testid="social-github"
-          >
-            <Github className="h-5 w-5" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="glass rounded-full glow-hover"
-            data-testid="social-linkedin"
-          >
-            <Linkedin className="h-5 w-5" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="glass rounded-full glow-hover"
-            data-testid="social-email"
-          >
-            <Mail className="h-5 w-5" />
-          </Button>
+          <a href="https://github.com/Sanjay767676" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="glass rounded-full glow-hover"
+              data-testid="social-github"
+            >
+              <Github className="h-5 w-5" />
+            </Button>
+          </a>
+          <a href="https://linkedin.com/in/sanjay-k-sana" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="glass rounded-full glow-hover"
+              data-testid="social-linkedin"
+            >
+              <Linkedin className="h-5 w-5" />
+            </Button>
+          </a>
+          <a href="mailto:ksanjuma1234@gmail.com">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="glass rounded-full glow-hover"
+              data-testid="social-email"
+            >
+              <Mail className="h-5 w-5" />
+            </Button>
+          </a>
         </div>
       </div>
 

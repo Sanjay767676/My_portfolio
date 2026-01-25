@@ -64,7 +64,7 @@ export default function Navbar() {
           className="text-2xl font-bold gradient-text"
           data-testid="nav-logo"
         >
-          Portfolio
+          Sanjay K
         </a>
 
         <div className="hidden md:flex items-center gap-1">
