@@ -59,12 +59,12 @@ export default function HeroSection() {
       <div className="text-center max-w-4xl mx-auto">
         <h1
           ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight font-display tracking-tight"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-display tracking-tight"
           data-testid="hero-title"
         >
           <span className="gradient-text">Sanjay K</span>
           <br />
-          <span className="text-foreground">Build. Innovate. Secure.</span>
+          <span className="text-foreground text-2xl md:text-4xl lg:text-5xl">Build. Innovate. Secure.</span>
         </h1>
 
         <p
@@ -72,7 +72,7 @@ export default function HeroSection() {
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
           data-testid="hero-subtitle"
         >
-          Software Developer & Cloud Engineer passionate about AI/ML, cloud technologies, 
+          Software Developer & Cloud Engineer passionate about AI/ML, cloud technologies,
           and building innovative solutions. Currently pursuing Computer Science at SNS College of Technology.
         </p>
 

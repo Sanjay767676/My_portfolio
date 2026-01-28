@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -48,11 +48,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? "glass py-3"
           : "bg-transparent py-5"
-      }`}
+        }`}
       data-testid="navbar"
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -74,11 +73,10 @@ export default function Navbar() {
             <button
               key={link.href}
               onClick={() => scrollToSection(link.href)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
-                activeSection === link.href.slice(1)
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeSection === link.href.slice(1)
                   ? "text-primary bg-primary/10"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-              }`}
+                }`}
               data-testid={`nav-link-${link.href.slice(1)}`}
             >
               {link.label}
@@ -104,11 +102,10 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className={`px-4 py-3 rounded-md text-left font-medium transition-all duration-200 ${
-                  activeSection === link.href.slice(1)
+                className={`px-4 py-3 rounded-md text-left font-medium transition-all duration-200 ${activeSection === link.href.slice(1)
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                }`}
+                  }`}
                 data-testid={`mobile-nav-link-${link.href.slice(1)}`}
               >
                 {link.label}
