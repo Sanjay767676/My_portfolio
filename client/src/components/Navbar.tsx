@@ -8,7 +8,6 @@ const navLinks = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
-  { href: "#resume", label: "Resume" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -49,8 +48,8 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? "glass py-3"
-          : "bg-transparent py-5"
+        ? "glass py-3"
+        : "bg-transparent py-5"
         }`}
       data-testid="navbar"
     >
@@ -64,7 +63,7 @@ export default function Navbar() {
           className="flex items-center gap-2"
           data-testid="nav-logo"
         >
-          <img src={logo} alt="Logo" className="w-10 h-10 rounded-md" />
+          <img src="https://github.com/Sanjay767676.png" alt="Sanjay K" className="w-10 h-10 rounded-full border border-border" />
           <span className="text-xl font-bold gradient-text font-display">Sanjay K</span>
         </a>
 
@@ -73,9 +72,9 @@ export default function Navbar() {
             <button
               key={link.href}
               onClick={() => scrollToSection(link.href)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeSection === link.href.slice(1)
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+              className={`px-4 py-2 rounded-lg text-sm font-medium water-glass ${activeSection === link.href.slice(1)
+                ? "water-glass-active"
+                : "text-muted-foreground hover:text-foreground"
                 }`}
               data-testid={`nav-link-${link.href.slice(1)}`}
             >
@@ -102,9 +101,9 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className={`px-4 py-3 rounded-md text-left font-medium transition-all duration-200 ${activeSection === link.href.slice(1)
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                className={`px-4 py-3 rounded-lg text-left font-medium water-glass ${activeSection === link.href.slice(1)
+                  ? "water-glass-active"
+                  : "text-muted-foreground hover:text-foreground"
                   }`}
                 data-testid={`mobile-nav-link-${link.href.slice(1)}`}
               >

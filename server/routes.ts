@@ -3,12 +3,13 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { contactFormSchema } from "@shared/schema";
 import { analyzeResume } from "./aiAnalyzer";
+import { googleDriveService } from "./googleDrive";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  
+
   app.get("/api/skills", async (req, res) => {
     try {
       const skills = await storage.getSkills();
@@ -50,22 +51,60 @@ export async function registerRoutes(
     }
   });
 
+  app.get("/api/resume/download", async (req, res) => {
+    try {
+      // Download the latest resume from Google Drive via Apps Script
+      const fileData = await googleDriveService.downloadLatestResume();
+
+      if (!fileData) {
+        return res.status(404).json({
+          error: "No resume found in Google Drive"
+        });
+      }
+
+      // Set appropriate headers for file download
+      res.setHeader("Content-Type", fileData.mimeType);
+      res.setHeader(
+        "Content-Disposition",
+        `attachment; filename="${fileData.fileName}"`
+      );
+
+      // Stream the file to the client
+      const reader = fileData.data.getReader();
+
+      const pump = async () => {
+        const { done, value } = await reader.read();
+        if (done) {
+          res.end();
+          return;
+        }
+        res.write(value);
+        pump();
+      };
+
+      await pump();
+    } catch (error) {
+      console.error("Error downloading resume:", error);
+      res.status(500).json({ error: "Failed to download resume from Google Drive" });
+    }
+  });
+
   app.post("/api/contact", async (req, res) => {
     try {
       const parsed = contactFormSchema.safeParse(req.body);
-      
+
       if (!parsed.success) {
-        return res.status(400).json({ 
-          error: "Validation failed", 
-          details: parsed.error.errors 
+        return res.status(400).json({
+          error: "Validation failed",
+          details: parsed.error.errors
         });
       }
 
       const submission = await storage.createContactSubmission(parsed.data);
-      res.status(201).json({ 
-        message: "Contact submission received", 
+      res.status(201).json({
+        message: "Contact submission received",
         id: submission.id,
-        createdAt: submission.createdAt 
+        createdAt: submission.createdAt
       });
     } catch (error) {
       console.error("Error processing contact submission:", error);

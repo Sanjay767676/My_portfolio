@@ -59,12 +59,12 @@ export default function HeroSection() {
       <div className="text-center max-w-4xl mx-auto">
         <h1
           ref={titleRef}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight font-display tracking-tight"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight font-display tracking-tight"
           data-testid="hero-title"
         >
-          <span className="gradient-text">Sanjay K</span>
+          Sanjay K
           <br />
-          <span className="text-foreground text-2xl md:text-4xl lg:text-5xl">Build. Innovate. Secure.</span>
+          <span className="text-muted-foreground text-2xl md:text-4xl lg:text-5xl font-normal">Build. Innovate. Secure.</span>
         </h1>
 
         <p
@@ -73,7 +73,7 @@ export default function HeroSection() {
           data-testid="hero-subtitle"
         >
           Software Developer & Cloud Engineer passionate about AI/ML, cloud technologies,
-          and building innovative solutions. Currently pursuing Computer Science at SNS College of Technology.
+          and building innovative solutions.
         </p>
 
         <div
@@ -82,7 +82,7 @@ export default function HeroSection() {
         >
           <Button
             size="lg"
-            className="px-8 glow-hover"
+            className="px-8"
             onClick={() => {
               const projectsSection = document.getElementById("projects");
               if (projectsSection) {
@@ -96,7 +96,7 @@ export default function HeroSection() {
           <Button
             variant="outline"
             size="lg"
-            className="px-8 glass border-primary/30 glow-hover"
+            className="px-8"
             onClick={() => {
               const contactSection = document.getElementById("contact");
               if (contactSection) {
@@ -114,7 +114,7 @@ export default function HeroSection() {
             <Button
               variant="ghost"
               size="icon"
-              className="glass rounded-full glow-hover"
+              className="rounded-full"
               data-testid="social-github"
             >
               <Github className="h-5 w-5" />
@@ -124,7 +124,7 @@ export default function HeroSection() {
             <Button
               variant="ghost"
               size="icon"
-              className="glass rounded-full glow-hover"
+              className="rounded-full"
               data-testid="social-linkedin"
             >
               <Linkedin className="h-5 w-5" />
@@ -134,7 +134,7 @@ export default function HeroSection() {
             <Button
               variant="ghost"
               size="icon"
-              className="glass rounded-full glow-hover"
+              className="rounded-full"
               data-testid="social-email"
             >
               <Mail className="h-5 w-5" />

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useQuery } from "@tanstack/react-query";
@@ -20,6 +20,21 @@ export default function ResumeSection() {
     queryKey: ["/api/resume"],
     refetchInterval: 30000,
   });
+
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownloadResume = async () => {
+    try {
+      setIsDownloading(true);
+      // Open the download endpoint in a new window
+      window.open("/api/resume/download", "_blank");
+    } catch (error) {
+      console.error("Error downloading resume:", error);
+    } finally {
+      // Reset downloading state after a short delay
+      setTimeout(() => setIsDownloading(false), 1000);
+    }
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -120,9 +135,14 @@ export default function ResumeSection() {
                         <RefreshCw className="h-4 w-4 mr-2" />
                         Refresh
                       </Button>
-                      <Button size="sm" data-testid="download-resume">
+                      <Button
+                        size="sm"
+                        data-testid="download-resume"
+                        onClick={handleDownloadResume}
+                        disabled={isDownloading}
+                      >
                         <Download className="h-4 w-4 mr-2" />
-                        Download
+                        {isDownloading ? "Downloading..." : "Download"}
                       </Button>
                     </div>
                   </div>

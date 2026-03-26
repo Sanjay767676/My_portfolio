@@ -98,23 +98,23 @@ export default function AboutSection() {
     >
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="text-center mb-16">
-          <span className="text-primary font-medium mb-4 block">About Me</span>
+          <span className="text-muted-foreground font-medium mb-4 block">About Me</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-display">
-            Passionate About <span className="gradient-text">Technology</span>
+            Passionate About Technology
           </h2>
         </div>
 
         <div ref={contentRef} className="glass-card rounded-2xl p-8 md:p-12 mb-16">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Self-motivated and analytical Computer Science undergraduate with a strong 
-              interest in software development and cloud-based technologies. I demonstrate 
-              adaptability, quick learning ability, and solid technical aptitude across 
+              Self-motivated and analytical Computer Science undergraduate with a strong
+              interest in software development and cloud-based technologies. I demonstrate
+              adaptability, quick learning ability, and solid technical aptitude across
               modern computing environments.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Skilled in understanding complex systems, writing clean and efficient code, 
-              and troubleshooting technical challenges with a logical, problem-solving approach. 
+              Skilled in understanding complex systems, writing clean and efficient code,
+              and troubleshooting technical challenges with a logical, problem-solving approach.
               Currently pursuing my Bachelor's at SNS College of Technology, Coimbatore.
             </p>
           </div>
@@ -127,9 +127,9 @@ export default function AboutSection() {
           {highlights.map((item, index) => (
             <div
               key={index}
-              className="highlight-card glass-card rounded-xl p-6 text-center glow-hover transition-all duration-300"
+              className="highlight-card glass-card rounded-xl p-6 text-center transition-all duration-300"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 text-primary mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-muted text-foreground mb-4">
                 <item.icon className="h-7 w-7" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
