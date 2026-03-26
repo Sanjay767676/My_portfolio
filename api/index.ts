@@ -1,13 +1,11 @@
-import app from "../server/index";
-import { registerRoutes } from "../server/routes";
-import { createServer } from "http";
+import app, { startup } from "../server/index";
 
-const httpServer = createServer(app);
+let initialized = false;
 
 export default async function handler(req: any, res: any) {
-  // Ensure routes are registered
-  await registerRoutes(httpServer, app);
-  
-  // Hand over the request to the express app
+  if (!initialized) {
+    await startup();
+    initialized = true;
+  }
   return app(req, res);
 }

@@ -81,7 +81,7 @@ export default function ContactSection() {
           scrollTrigger: {
             trigger: headingRef.current,
             start: "top 85%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -96,7 +96,7 @@ export default function ContactSection() {
           scrollTrigger: {
             trigger: formRef.current,
             start: "top 85%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -111,7 +111,7 @@ export default function ContactSection() {
           scrollTrigger: {
             trigger: infoRef.current,
             start: "top 85%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         }
       );

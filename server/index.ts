@@ -60,35 +60,40 @@ app.use((req, res, next) => {
   next();
 });
 
-export default app;
+export const startup = async () => {
+  await registerRoutes(httpServer, app);
 
-if (process.env.NODE_ENV !== "test" && import.meta.url === `file://${process.argv[1]}`) {
-  (async () => {
-    await registerRoutes(httpServer, app);
+  app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
+    const status = err.status || err.statusCode || 500;
+    const message = err.message || "Internal Server Error";
 
-    app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
-      const status = err.status || err.statusCode || 500;
-      const message = err.message || "Internal Server Error";
+    console.error("Internal Server Error:", err);
 
-      console.error("Internal Server Error:", err);
-
-      if (res.headersSent) {
-        return next(err);
-      }
-
-      return res.status(status).json({ message });
-    });
-
-    if (process.env.NODE_ENV === "production") {
-      serveStatic(app);
-    } else {
-      const { setupVite } = await import("./vite");
-      await setupVite(httpServer, app);
+    if (res.headersSent) {
+      return next(err);
     }
 
+    return res.status(status).json({ message });
+  });
+
+  if (process.env.NODE_ENV === "production") {
+    serveStatic(app);
+  } else {
+    const { setupVite } = await import("./vite");
+    await setupVite(httpServer, app);
+  }
+
+  return { app, httpServer };
+};
+
+// For local development
+if (process.env.NODE_ENV !== "production") {
+  startup().then(({ httpServer }) => {
     const port = parseInt(process.env.PORT || "5000", 10);
     httpServer.listen(port, "0.0.0.0", () => {
       log(`serving on port ${port}`);
     });
-  })();
+  });
 }
+
+export default app;
