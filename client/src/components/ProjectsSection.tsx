@@ -91,7 +91,7 @@ export default function ProjectsSection() {
       );
 
       const projectCards = projectsRef.current?.querySelectorAll(".project-card");
-      if (projectCards) {
+      if (projectCards && projectCards.length > 0) {
         gsap.fromTo(
           projectCards,
           { y: 50, opacity: 0 },

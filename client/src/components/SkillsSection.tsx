@@ -72,29 +72,32 @@ export default function SkillsSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headingRef.current,
-        { y: 60, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+      if (headingRef.current) {
+        gsap.fromTo(
+          headingRef.current,
+          { y: 60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            scrollTrigger: {
+              trigger: headingRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   useEffect(() => {
-    if (!skills || skills.length === 0 || !scrollContainerRef.current) return;
+    if (!skills || !skills.length || !scrollContainerRef.current) return;
 
     const container = scrollContainerRef.current;
+    if (!container) return;
     const scrollWidth = container.scrollWidth / 2;
 
     const animation = gsap.to(container, {
