@@ -40,12 +40,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border/30 text-center">
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
-            Made with <Heart className="h-4 w-4 text-primary fill-primary" /> using modern web technologies
-          </p>
-          <p className="text-xs text-muted-foreground/60 mt-2">
-            {new Date().getFullYear()} All rights reserved
-          </p>
+          <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">© {new Date().getFullYear()} Sanjay K. All rights reserved</p>
         </div>
       </div>
     </footer>

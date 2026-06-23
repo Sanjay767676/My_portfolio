@@ -1,58 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
+import { DiaTextReveal } from "@/components/magicui/dia-text-reveal";
 import { TextAnimate } from "@/components/magicui/text-animate";
 
 interface IntroOverlayProps {
     onComplete: () => void;
-}
-
-const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</>";
-
-function ScrambleChar({ char, delay, duration }: { char: string, delay: number, duration: number }) {
-    const charRef = useRef<HTMLSpanElement>(null);
-
-    useEffect(() => {
-        if (!charRef.current) return;
-
-        const element = charRef.current;
-        const finalChar = char;
-        let iterations = 0;
-        const maxIterations = 30; // More iterations for slower feel
-
-        const tl = gsap.timeline({ delay });
-
-        tl.to({}, {
-            duration: duration,
-            onUpdate: () => {
-                if (iterations < maxIterations) {
-                    element.innerText = characters[Math.floor(Math.random() * characters.length)];
-                    iterations++;
-                } else {
-                    element.innerText = finalChar;
-                    tl.kill();
-                }
-            },
-            onComplete: () => {
-                element.innerText = finalChar;
-                element.style.color = "#ffffff";
-            }
-        });
-
-        return () => { tl.kill(); };
-    }, [char, delay, duration]);
-
-    return <span ref={charRef} className="inline-block text-white">{char}</span>;
-}
-
-function ScrambleText({ text, delay = 0, duration = 3.0, className = "" }: { text: string, delay?: number, duration?: number, className?: string }) {
-    return (
-        <div className={className}>
-            {text.split("").map((char, i) => (
-                <ScrambleChar key={i} char={char} delay={delay + i * 0.1} duration={duration} />
-            ))}
-        </div>
-    );
 }
 
 export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
@@ -90,10 +43,12 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
                 >
                     <div className="flex flex-col items-center">
                         <div className="inline-block relative">
-                            <ScrambleText
+                            <DiaTextReveal
                                 text="</Sanjay>"
                                 delay={0.5}
                                 duration={3.0}
+                                colors={["#A97CF8", "#F38CB8", "#FDCC92"]}
+                                textColor="#ffffff"
                                 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter whitespace-nowrap font-serif"
                             />
 

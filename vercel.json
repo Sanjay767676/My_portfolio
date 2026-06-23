@@ -22,7 +22,7 @@
       "destination": "/api/contact"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api|assets|logos|favicon|.*\\..*$).*)",
       "destination": "/index.html"
     }
   ],

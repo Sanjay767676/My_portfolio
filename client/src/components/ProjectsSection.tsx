@@ -47,17 +47,23 @@ function ProjectCard({ project }: { project: Project }) {
           size="sm"
           className="flex-1 glass"
           data-testid={`project-github-${project.id}`}
+          asChild
         >
-          <Github className="h-4 w-4 mr-2" />
-          Code
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+            <Github className="h-4 w-4 mr-2" />
+            Code
+          </a>
         </Button>
         <Button
           size="sm"
           className="flex-1"
           data-testid={`project-live-${project.id}`}
+          asChild
         >
-          <ExternalLink className="h-4 w-4 mr-2" />
-          Live Demo
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+            <ExternalLink className="h-4 w-4 mr-2" />
+            Live Demo
+          </a>
         </Button>
       </CardFooter>
     </Card>
