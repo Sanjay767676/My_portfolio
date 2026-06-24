@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { DiaTextReveal } from "@/components/magicui/dia-text-reveal";
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -64,7 +65,14 @@ export default function HeroSection() {
         >
           <span className="font-neuton">Sanjay K</span>
           <br />
-          <span className="text-muted-foreground text-2xl md:text-4xl lg:text-5xl font-normal">Build. Innovate. Secure.</span>
+          <DiaTextReveal
+            repeat
+            repeatDelay={1.5}
+            text={["Build.", "Innovate.", "Secure."]}
+            colors={["#A97CF8", "#F38CB8", "#FDCC92"]}
+            textColor="rgba(255, 255, 255, 0.7)"
+            className="text-muted-foreground text-2xl md:text-4xl lg:text-5xl font-normal inline-block mt-2"
+          />
         </h1>
 
         <p
