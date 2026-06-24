@@ -33,7 +33,7 @@ const ScrollVelocityContext = React.createContext<MotionValue<number> | null>(
 export function ScrollVelocityContainer({
   children,
   className,
-  ...props: React.HTMLAttributes<HTMLDivElement>
+  ...props
 }: { children: React.ReactNode; className?: string; [key: string]: any }) {
   const { scrollY } = useScroll()
   const scrollVelocity = useVelocity(scrollY)
