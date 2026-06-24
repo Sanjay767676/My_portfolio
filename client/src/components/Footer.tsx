@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <p className="text-2xl font-bold mb-2">
-              <AuroraText>Sanjay K</AuroraText>
+              <AuroraText className="font-elika">Sanjay K</AuroraText>
             </p>
             <p className="text-sm text-muted-foreground">
               Build. Innovate. Secure.
