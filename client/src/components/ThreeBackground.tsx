@@ -15,7 +15,7 @@ export default function ThreeBackground() {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const particleCount = 8000; // Adjusted to user request
+    const particleCount = 1500; // Optimized for performance
 
     try {
       const canvas = document.createElement('canvas');
