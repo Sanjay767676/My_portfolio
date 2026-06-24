@@ -49,7 +49,7 @@ export default function IntroOverlay({ onComplete }: IntroOverlayProps) {
                                 duration={4.0}
                                 colors={["#A97CF8", "#F38CB8", "#FDCC92"]}
                                 textColor="#ffffff"
-                                className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter whitespace-nowrap font-serif"
+                                className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter whitespace-nowrap font-elika"
                             />
 
                             {showSubtitle && (

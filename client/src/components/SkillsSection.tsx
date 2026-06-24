@@ -59,6 +59,9 @@ export default function SkillsSection() {
     queryKey: ["/api/skills"],
   });
 
+  const firstHalf = skills ? skills.slice(0, Math.ceil(skills.length / 2)) : [];
+  const secondHalf = skills ? skills.slice(Math.ceil(skills.length / 2)) : [];
+
   useEffect(() => {
     // Dynamically load Devicon CSS
     if (!document.getElementById("devicon-cdn")) {
@@ -124,10 +127,17 @@ export default function SkillsSection() {
             ))}
           </div>
         ) : (
-          <ScrollVelocityContainer>
+          <ScrollVelocityContainer className="flex flex-col gap-4">
             <ScrollVelocityRow baseVelocity={3} direction={1}>
               <div className="flex py-2">
-                {skills?.map((skill) => (
+                {firstHalf.map((skill) => (
+                  <SkillCard key={skill.id} skill={skill} />
+                ))}
+              </div>
+            </ScrollVelocityRow>
+            <ScrollVelocityRow baseVelocity={3} direction={-1}>
+              <div className="flex py-2">
+                {secondHalf.map((skill) => (
                   <SkillCard key={skill.id} skill={skill} />
                 ))}
               </div>
