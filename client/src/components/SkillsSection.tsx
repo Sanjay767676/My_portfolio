@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useQuery } from "@tanstack/react-query";
 import type { Skill } from "@shared/schema";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ScrollVelocityContainer, ScrollVelocityRow } from "@/components/magicui/scroll-velocity";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,7 +35,7 @@ function SkillCard({ skill }: { skill: Skill }) {
   const localIcon = localIconMap[skill.name.toLowerCase()] || localIconMap[skill.icon.toLowerCase()];
 
   return (
-    <div className="flex-shrink-0 water-glass rounded-xl px-6 py-4 flex items-center gap-4 transition-all duration-300 hover:scale-105">
+    <div className="flex-shrink-0 water-glass rounded-xl px-6 py-4 flex items-center gap-4 transition-all duration-300 hover:scale-105 mx-3">
       <div className="w-10 h-10 flex items-center justify-center">
         {localIcon ? (
           <img src={localIcon} alt={skill.name} className="w-full h-full object-contain" />
@@ -53,7 +54,6 @@ function SkillCard({ skill }: { skill: Skill }) {
 export default function SkillsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const { data: skills, isLoading } = useQuery<Skill[]>({
     queryKey: ["/api/skills"],
@@ -93,25 +93,6 @@ export default function SkillsSection() {
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    if (!skills || !skills.length || !scrollContainerRef.current) return;
-
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    const scrollWidth = container.scrollWidth / 2;
-
-    const animation = gsap.to(container, {
-      x: -scrollWidth,
-      duration: 30,
-      ease: "none",
-      repeat: -1,
-    });
-
-    return () => {
-      animation.kill();
-    };
-  }, [skills]);
-
   return (
     <section
       ref={sectionRef}
@@ -143,18 +124,15 @@ export default function SkillsSection() {
             ))}
           </div>
         ) : (
-          <div
-            ref={scrollContainerRef}
-            className="flex gap-6 py-4"
-            data-testid="skills-container"
-          >
-            {skills?.map((skill, index) => (
-              <SkillCard key={`${skill.id}-${index}`} skill={skill} />
-            ))}
-            {skills?.map((skill, index) => (
-              <SkillCard key={`${skill.id}-duplicate-${index}`} skill={skill} />
-            ))}
-          </div>
+          <ScrollVelocityContainer>
+            <ScrollVelocityRow baseVelocity={3} direction={1}>
+              <div className="flex py-2">
+                {skills?.map((skill) => (
+                  <SkillCard key={skill.id} skill={skill} />
+                ))}
+              </div>
+            </ScrollVelocityRow>
+          </ScrollVelocityContainer>
         )}
       </div>
     </section>

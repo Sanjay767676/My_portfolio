@@ -78,34 +78,46 @@ export default function HeroSection() {
 
         <div
           ref={ctaRef}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          className="flex flex-col gap-4 items-center mb-12"
         >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button
+              size="lg"
+              className="px-8"
+              onClick={() => {
+                const projectsSection = document.getElementById("projects");
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              data-testid="cta-projects"
+            >
+              View Projects
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="px-8"
+              onClick={() => {
+                const contactSection = document.getElementById("contact");
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              data-testid="cta-contact"
+            >
+              Get in Touch
+            </Button>
+          </div>
           <Button
+            variant="secondary"
             size="lg"
-            className="px-8"
-            onClick={() => {
-              const projectsSection = document.getElementById("projects");
-              if (projectsSection) {
-                projectsSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-            data-testid="cta-projects"
+            className="px-8 glass hover:bg-white/10 text-foreground transition-all duration-300"
+            asChild
           >
-            View Projects
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="px-8"
-            onClick={() => {
-              const contactSection = document.getElementById("contact");
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
-            data-testid="cta-contact"
-          >
-            Get in Touch
+            <a href="/Resume_2026.pdf" target="_blank" rel="noopener noreferrer">
+              View Resume
+            </a>
           </Button>
         </div>
 
