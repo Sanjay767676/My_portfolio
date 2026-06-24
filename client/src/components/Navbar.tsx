@@ -64,7 +64,7 @@ export default function Navbar() {
           data-testid="nav-logo"
         >
           <img src="https://github.com/Sanjay767676.png" alt="Sanjay K" className="w-10 h-10 rounded-full border border-border" />
-          <span className="text-xl font-bold gradient-text font-elika">Sanjay K</span>
+          <span className="text-xl font-bold gradient-text font-neuton">Sanjay K</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1">
