@@ -1,1 +1,1 @@
-export * from "../api/storage";
+export * from "../api/storage.js";

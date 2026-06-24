@@ -1,5 +1,5 @@
-import { storage } from "./storage";
-import { contactFormSchema } from "../shared/schema";
+import { storage } from "./storage.js";
+import { contactFormSchema } from "../shared/schema.js";
 
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {

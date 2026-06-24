@@ -1,4 +1,4 @@
-import { storage } from "./storage";
+import { storage } from "./storage.js";
 
 export default async function handler(req: any, res: any) {
   try {
