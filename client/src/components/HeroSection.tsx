@@ -62,7 +62,7 @@ export default function HeroSection() {
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight font-display tracking-tight"
           data-testid="hero-title"
         >
-          <span className="font-elika">Sanjay K</span>
+          Sanjay K
           <br />
           <span className="text-muted-foreground text-2xl md:text-4xl lg:text-5xl font-normal">Build. Innovate. Secure.</span>
         </h1>
